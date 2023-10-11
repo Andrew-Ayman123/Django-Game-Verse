@@ -1,0 +1,37 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %} Game Verse - Unlock Your Game Potential!{% endblock %}
+{% block body_content %}
+    <form action="" method="post" name="userNameForm">
+      {% csrf_token %}
+      <div class="col">
+        <div id="title" class="row ">
+          <img src="{% static 'images/game-verse-title.png' %}" alt="game-verse-title.png">
+        </div>
+
+        <div class="form-inline my-4 card rounded-4 shadow-lg bg-custom-white bg-custom-blur1">
+          <div class="form-group row card-header fs-4 ">
+            <label for="name" class="col-md-4 col-form-label fw-bold">What is your Name?</label>
+            <div class="col-md-8 ">
+              <input type="text" class="form-control fs-4" name="name" id="name" placeholder="John Doe 01 (Only alpha numeric characters are allowed)" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="content" class="row pt-md-4 pt-3 ">
+        {% for game,background in games.items %}
+        <div class="col col-md-4">
+          <button type="submit" name="{{game}}" value="{{game}}" style="all:initial;width:100%;">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg bg-custom-blur3"
+              style="background: url('{% static background %}');background-color:transparent !important">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold f-stroke">{{game}}</h3>
+              </div>
+            </div>
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
+    </form>
+    {% endblock %}

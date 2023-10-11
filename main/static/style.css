@@ -1,0 +1,247 @@
+body {
+  background-image: url("images/background.jpg");
+  background-repeat: repeat;
+  background-size: contain;
+}
+.fc-orange {
+  color: #ff9900 !important;
+  text-shadow: 1px 1px 1px #fff, 4px 4px 5px #3a7dcc;
+  font-family: "ArcadeClassic", sans-serif !important;
+  letter-spacing: 3px !important;
+}
+.f-stroke {
+  text-shadow: 2px 2px 2px #000, 2px 2px 5px #ff9900;
+}
+.bg-custom-transparent {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+.bg-custom-white {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+}
+.bg-custom-blue {
+  background-color: rgba(157, 210, 234, 0.85) !important;
+}
+.bg-custom-cyan {
+  background-color: rgba(46, 147, 194, 0.85) !important;
+}
+.bg-custom-yellow {
+  background-color: rgba(235, 235, 36, 0.85) !important;
+}
+.bg-custom-grey {
+  background-color: rgba(33, 37, 41, 0.85) !important;
+}
+.bg-custom-blur1 {
+  backdrop-filter: blur(1px);
+}
+.bg-custom-blur3 {
+  backdrop-filter: blur(3px);
+}
+#title img {
+  animation: title-animation-scale 2s linear infinite alternate;
+}
+@keyframes title-animation-scale {
+  from {
+    transform: scale(1, 1);
+  }
+  to {
+    transform: scale(0.95, 0.95);
+  }
+}
+
+#content > div {
+  animation: content-animation-floating 3s ease-in-out infinite alternate;
+}
+#content .card {
+  background-size: 100% auto !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transition: 0.5s;
+}
+#content .card:hover {
+  box-shadow: 0 5px 15px #ff9900 !important;
+  background-size: 125% auto !important;
+  background-position: center !important;
+  cursor: pointer;
+}
+#content > div:nth-child(1) {
+  animation-delay: 0;
+}
+#content > div:nth-child(2) {
+  animation-delay: 1.5s;
+}
+#content > div:nth-child(3) {
+  animation-delay: 0.75s;
+  animation-direction: alternate-reverse;
+}
+@keyframes content-animation-floating {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-15px);
+  }
+}
+
+.game-button {
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.game-button:hover {
+  transform: translate(0px, -2px);
+}
+
+.game-button:active {
+  transform: translate(0px, 1px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+.game-button:disabled {
+  cursor: auto;
+  background-color: grey !important;
+}
+.game-button:disabled:hover {
+  transform: none;
+}
+.game-button:disabled:active {
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2) !important;
+}
+.game-button-red {
+  background-color: #ff5722;
+}
+.game-button-red:active {
+  background-color: #ff784e;
+}
+.game-button-green {
+  background-color: #3bc67a;
+}
+.game-button-green:active {
+  background-color: #7bcb7d;
+}
+.no-spinner::-webkit-inner-spin-button,
+.no-spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.social-icons a {
+  text-decoration: none;
+  background-color: #eceeef;
+  color: #818a91;
+
+  width: 44px;
+  height: 44px;
+  margin-right: 8px;
+  border-radius: 100%;
+  transition: all 0.2s linear;
+}
+
+.social-icons a:hover {
+  color: #fff;
+}
+
+.social-icons a.facebook:hover {
+  background-color: #3b5998;
+}
+.social-icons a.linkedin:hover {
+  background-color: #007bb6;
+}
+.social-icons a.gmail:hover {
+  background-color: #c71610;
+}
+.social-icons a.whatsapp:hover {
+  background-color: #25d366;
+}
+.social-icons a.github:hover {
+  background-color: #333;
+}
+.glitch{
+  font-weight: bold;
+  position: relative;
+  white-space: nowrap;
+}
+.glitch span {
+  position: absolute;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+}
+footer:hover{
+  .glitch {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+    animation: glitch 725ms infinite;
+  }
+  
+  
+  
+  .glitch span:first-child {
+    animation: glitch 500ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-0.04em, -0.03em);
+    opacity: 0.75;
+  }
+  
+  .glitch span:last-child {
+    animation: glitch 375ms infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(0.04em, 0.03em);
+    opacity: 0.75;
+  }
+
+  
+}
+  
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+      -0.05em -0.05em 0 #fffc00;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+      0 -0.04em 0 #fffc00;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+      -0.04em -0.025em 0 #fffc00;
+  }
+}
+@keyframes blinking {
+  from {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ff9900;
+  }
+}
+#footer-job {
+  font-family: "Courier New", Courier, monospace;
+  width: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 0.1em solid;
+  transition: width 1.5s steps(25, end);
+  animation: blinking 0.4s step-end infinite;
+}

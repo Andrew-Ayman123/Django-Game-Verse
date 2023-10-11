@@ -1,0 +1,54 @@
+<footer
+  class="row bg-custom-grey text-center text-white py-0 px-4 pe-0  m-0 border-top border-1 position-fixed bottom-0 start-0 end-0">
+  <div class="col-md-8 col-sm-6 col-xs-12 d-flex justify-content-start align-items-center fw-bold fs-4">
+    <div class="row">
+      <div class="col-12 text-start p-0">
+        Designed & Developed By: &nbsp;
+        <span class="glitch">
+          <span aria-hidden="true">Andrew Ayman</span>
+          Andrew Ayman
+          <span aria-hidden="true">Andrew Ayman</span>
+        </span>
+      </div>
+
+
+      <span id="footer-job" class="col-12 fs-5 fw-medium text-start p-0"> Job Title</span>
+      <script>
+        let jobs = [
+          "Software Engineer",
+          "Front-End Developer",
+          "Data Engineer",
+          "Flutter Developer",
+        ];
+        let jobI = 0;
+        let myJob = document.getElementById("footer-job");
+        myJob.style.width = "0%";
+        myJob.innerHTML = jobs[jobI];
+        myJob.style.width = `calc(13*${jobs[jobI].length}px)`;
+        setInterval(() => {
+          myJob.style.width = "0%";
+          setTimeout(() => {
+            myJob.innerHTML = jobs[++jobI % jobs.length];
+            myJob.style.width = `calc(13*${jobs[jobI % jobs.length].length}px)`;
+          }, 1500);
+        }, 6000);
+      </script>
+    </div>
+  </div>
+  <div class="col-md-4 col-sm-6 col-xs-12 d-flex justify-content-center align-items-center m-0 p-0">
+    <div class="row social-icons m-0">
+      <a class="facebook mt-1 d-flex justify-content-center align-items-center" href="https://www.facebook.com/1AndrewAyman/"
+        target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+      <a class="gmail mt-1 d-flex justify-content-center align-items-center" href="mailto:andrewayamn9@gmail.com"
+        target="_blank"><i class="fa fa-google fa-2x"></i></a>
+      <a class="whatsapp mt-1 d-flex justify-content-center align-items-center" href="https://wa.me/201284655945"
+        target="_blank"><i class="fa fa-whatsapp fa-2x"></i></a>
+      <a class="linkedin mt-1 d-flex justify-content-center align-items-center"
+        href="https://www.linkedin.com/in/andrew-ayman-013404217/" target="_blank"><i
+          class="fa fa-linkedin fa-2x"></i></a>
+      <a class="github mt-1 d-flex justify-content-center align-items-center" href="https://github.com/Andrew-Ayman123"
+        target="_blank"><i class="fa fa-github fa-2x"></i></a>
+    </div>
+
+  </div>
+</footer>

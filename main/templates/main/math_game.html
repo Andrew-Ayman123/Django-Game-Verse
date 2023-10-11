@@ -1,0 +1,105 @@
+{% extends "main/game_base.html" %}
+
+{% block game_name %}
+Math Game
+{% endblock %}
+
+
+{% block title %}
+Math Game
+{% endblock %}
+
+{% block content %}
+<form action="./math" method="post">
+  {% csrf_token %}
+  <div class="row rounded-4 p-4 bg-custom-blue border border-light border-2 shadow m-4 fw-bold">
+    <p class="text-center">
+      Fill in the correct answer.<br> The quicker you answer the higher score you get.
+    </p>
+
+    <div class="col-12 bg-custom-cyan p-0 rounded-4 border border-primary border-1 position-relative">
+      {% if not equation %}
+      <div id="counter321"
+        class="position-absolute z-1 bg-custom-white w-100 h-100 rounded-4 d-flex justify-content-center align-items-center bg-custom-blur1 fs-1 fc-orange ">
+
+        {% if success %}
+        <div class="text-success">{{message}}</div>
+        {% else %}
+        <div class="text-danger">{{message}}</div>
+        {% endif %}
+
+      </div>
+      {% endif %}
+      <div class="p-2">
+        <div class="d-flex flex-row justify-content-center fs-2 ">
+          <div class="text-end">
+            {% if equation %}
+            {{equation}} =
+            {% else %}
+            2 + 3 =
+            {% endif %}
+          </div>
+
+          <input class="text-center w-25 mx-2 bg-custom-white no-spinner" type="number" placeholder="?"
+            name="math-result" autofocus {% if equation %} required {% else %} readonly {% endif %}>
+        </div>
+        <div class="row m-0 px-1 py-2 justify-content-center">
+          <p class="rounded-4 m-0 bg-custom-yellow w-auto p-2 align-start">
+            Score: {% if score %} {{score}} {% else %} 00 {% endif %}
+          </p>
+          <div class="col"></div>
+          <p class="rounded-4 m-0 bg-custom-yellow w-auto p-2">
+            Time Remaining: {% if timeRemaining %} <span id="counter-timeremaining">{{timeRemaining}}</span> {% else %} 00 {% endif %}s
+          </p>
+          <script>
+            let timeCounterRemaining = {% if timeRemaining %} {{timeRemaining}} {% else %} 0 {% endif %}
+            if (timeCounterRemaining>0){
+              let timeCounterInterval=setInterval(() => {
+                document.getElementById('counter-timeremaining').innerHTML = --timeCounterRemaining
+                if (timeCounterRemaining<=0){
+                  clearInterval(timeCounterInterval)
+                }
+              }, 1000)
+            }
+            
+            
+          </script>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row m-0 p-0 pt-4 justify-content-center">
+      <button 
+      id="start-button"
+      name="start"
+      
+      value="start" class="game-button rounded-4 game-button-red w-25 mx-3" 
+      {% if equation %} type="button" disabled {% else %} type="submit" {% endif %}>
+        Start
+      </button>
+      <button type="submit" name='submit' value="submit" class="game-button rounded-4 game-button-green w-25 mx-3" 
+      {% if not equation %} disabled {% endif %} autofocus>Submit</button>
+
+    </div>
+  </div>
+  <script>
+    let timeCounter = 3
+    document.getElementById('start-button').addEventListener("click", (e) => {
+      if(timeCounter<=0){
+        return true
+      }
+      e.preventDefault()
+      document.getElementById('counter321').innerHTML = timeCounter--
+      let interval=setInterval(() => {
+        if (timeCounter<=0){
+          clearInterval(interval)
+          document.getElementById('start-button').click()
+        }
+        document.getElementById('counter321').innerHTML = timeCounter--
+        
+      }, 1000)
+    })
+  </script>
+</form>
+{% endblock %}

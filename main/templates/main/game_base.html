@@ -1,0 +1,74 @@
+{% extends "main/base.html" %} {% load static %} {% block body_content %}
+<div class="col">
+  <div
+    class="row card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 mb-3 p-2"
+  >
+    <div class="row row-gap-3 align-items-center">
+      <a href="./" class="col-md-3 col-6">
+        <img
+          src="{% static 'images/game-verse-title.png' %}"
+          alt="game-verse-title.png"
+          style="width: 100%"
+        />
+      </a>
+      <span class="col-md-9 col-6 fw-bold fs-1 fc-orange">
+        Hello, {{name}}
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-xl-7 p-0">
+      <div
+        class="card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 me-xl-2 me-0 mb-2 p-2"
+      >
+        <div class="card-body">
+          <div class="fw-bold fs-2 fc-orange">
+            {% block game_name %} Game_Name {% endblock %}
+          </div>
+          <div class="row align-self-center justify-content-center">
+            {% block content %} Game not Created yet {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-5 p-0 mb-5">
+      <div class="card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 p-2">
+        <div class="card-body">
+          <div class="fw-bold fs-2 fc-orange">Leader&nbsp;&nbsp;Boards</div>
+          <table class="table table-hover table-striped fs-5 fw-bold">
+            <thead>
+              <tr>
+                <th class="bg-custom-white fc-orange fs-3" scope="col">#</th>
+                <th class="bg-custom-white fc-orange fs-3" scope="col">Name</th>
+                <th class="bg-custom-white fc-orange fs-3" scope="col">Date</th>
+                <th class="bg-custom-white fc-orange fs-3" scope="col">
+                  Score
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in leaderboard %}
+               {% if forloop.counter|divisibleby:"2" == False %}
+              <tr>
+                <th scope="row" class="bg-transparent">{{forloop.counter}}</th>
+                <td class="bg-transparent">{{item.0}}</td>
+                <td class="bg-transparent">{{item.1}}</td>
+                <td class="bg-transparent">{{item.2}}</td>
+              </tr>
+              {% else %}
+              <tr>
+                <th scope="row" class="bg-custom-white">{{forloop.counter}}</th>
+                <td class="bg-custom-white">{{item.0}}</td>
+                <td class="bg-custom-white">{{item.1}}</td>
+                <td class="bg-custom-white">{{item.2}}</td>
+              </tr>
+              {% endif %} 
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
