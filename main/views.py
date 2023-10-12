@@ -45,14 +45,14 @@ def game(request: HttpRequest, html_file_path: str, leaderboard_name: str, attrs
 
     leaderboard_items: QuerySet = leaderboard.leaderboarditem_set.all().order_by(
         '-score')[:10]
-    
+
     leaderboard_items_list: list = [
         (val['name'], val['date'], val['score'])for val in leaderboard_items.values()]
-    
+
     # leaderboard_items_list.extend([('','','') for _ in range(10-len(leaderboard_items_list))])
-    attrs={'name': name, 'leaderboard': leaderboard_items_list} | attrs
-    
-    return render(request, html_file_path,attrs)
+    attrs = {**{'name': name, 'leaderboard': leaderboard_items_list}, **attrs}
+
+    return render(request, html_file_path, attrs)
 
 
 def math_game(request: HttpRequest):
@@ -60,14 +60,14 @@ def math_game(request: HttpRequest):
     session_math_key = 'math-attrs'
     if request.method == 'POST':
         if request.POST.get('start'):
-            
+
             equation = '{} {} {} {} {} {} {} '.format(
                 random.randint(0, 99),
-                random.choice(['+','-']),
+                random.choice(['+', '-']),
                 random.randint(0, 99),
-                random.choice(['+','-']),
+                random.choice(['+', '-']),
                 random.randint(0, 99),
-                random.choice(['+','-']),
+                random.choice(['+', '-']),
                 random.randint(0, 99)
             )
             res = int(eval(equation))
@@ -76,7 +76,7 @@ def math_game(request: HttpRequest):
             attrs['timeRemaining'] = 120
             attrs['time'] = float(time.time())
             request.session[session_math_key] = attrs
-            
+
         elif request.POST.get('submit'):
             original_attrs = request.session.get(session_math_key)
             if original_attrs:
@@ -87,7 +87,7 @@ def math_game(request: HttpRequest):
                         # calculate score
                         score = int((
                             original_attrs['timeRemaining'] - (time.time()-original_attrs['time']))*100)
-                        
+
                         if score < 0:
                             score = 0
                             attrs['score'] = score
@@ -97,7 +97,7 @@ def math_game(request: HttpRequest):
                             attrs['score'] = score
                             attrs['message'] = f'Bravo !!, Score: {score}'
                             attrs['success'] = True
-                            
+
                     else:
                         # wrong answer with socre 0
                         score = 0
