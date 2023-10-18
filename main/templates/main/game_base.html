@@ -1,68 +1,78 @@
-{% extends "main/base.html" %} {% load static %} {% block body_content %}
-<div class="col">
+{% extends "main/base.html" %} {% load static %} 
+
+{% block body_start %}
+{% if startAnimation %}
+<div class="w-100 h-100 rounded-5 z-2 fill-blue position-fixed top-0 start-0 fade-out-delayed">
+  
+</div>
+{% endif %}
+{% endblock %}
+
+{% block body_content %}
+
   <div
-    class="row card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 mb-3 p-2"
+    class="row card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 m-0 mb-2 p-lg-2 p-1"
   >
-    <div class="row row-gap-3 align-items-center">
-      <a href="./" class="col-md-3 col-6">
+    <div class="row justify-content-center">
+      <a href="./" class="col-lg-3 col-sm-6 col-12">
         <img
           src="{% static 'images/game-verse-title.png' %}"
           alt="game-verse-title.png"
           style="width: 100%"
         />
       </a>
-      <span class="col-md-9 col-6 fw-bold fs-1 fc-orange">
+      <span class="col-lg-9 col-sm-6 col-12 fw-bold fs-1 fc-orange d-flex align-items-center justify-content-center justify-content-sm-start">
         Hello, {{name}}
       </span>
     </div>
   </div>
-  <div class="row">
+  <div class="row m-0 p-0">
     <div class="col-12 col-xl-7 p-0">
       <div
-        class="card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 me-xl-2 me-0 mb-2 p-2"
+        class="card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 me-xl-2 me-0 mb-xl-0 mb-2 p-2"
       >
         <div class="card-body">
-          <div class="fw-bold fs-2 fc-orange">
+          <div class="fw-bold fs-2 fc-orange text-center">
             {% block game_name %} Game_Name {% endblock %}
           </div>
-          <div class="row align-self-center justify-content-center">
+          <div class="row align-self-center justify-content-center m-0 p-0">
             {% block content %} Game not Created yet {% endblock %}
           </div>
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-5 p-0 mb-5">
+    <div class="col-12 col-xl-5 p-0">
       <div class="card rounded-4 shadow-lg bg-custom-white bg-custom-blur1 p-2">
         <div class="card-body">
-          <div class="fw-bold fs-2 fc-orange">Leader&nbsp;&nbsp;Boards</div>
+          <div class="fw-bold fs-2 fc-orange text-center">Leader&nbsp;&nbsp;Boards</div>
           <table class="table table-hover table-striped fs-5 fw-bold">
             <thead>
               <tr>
-                <th class="bg-custom-white fc-orange fs-3" scope="col">#</th>
-                <th class="bg-custom-white fc-orange fs-3" scope="col">Name</th>
-                <th class="bg-custom-white fc-orange fs-3" scope="col">Date <span class="fs-5">(UTC)</span></th>
-                <th class="bg-custom-white fc-orange fs-3" scope="col">
+                <th class="fc-orange fs-3 rounded-top-start-1" scope="col">#</th>
+                <th class="fc-orange fs-3" scope="col">Name</th>
+                <th class="fc-orange fs-3" scope="col">Date <span class="fs-5">(UTC)</span></th>
+                <th class="fc-orange fs-3 rounded-top-end-1" scope="col">
                   Score
                 </th>
               </tr>
             </thead>
             <tbody>
               {% for item in leaderboard %}
-               {% if forloop.counter|divisibleby:"2" == False %}
-              <tr>
-                <th scope="row" class="bg-transparent">{{forloop.counter}}</th>
-                <td class="bg-transparent">{{item.0}}</td>
-                <td class="bg-transparent">{{item.1}}</td>
-                <td class="bg-transparent">{{item.2}}</td>
-              </tr>
+              {% if forloop.counter == leaderboardLength %}
+                <tr>
+                  <th class="rounded-bottom-start-1 border-0">{{forloop.counter}}</th>
+                  <td class="border-0" style="word-break:break-all;">{{item.0}}</td>
+                  <td class="border-0">{{item.1}}</td>
+                  <td class="rounded-bottom-end-1 border-0">{{item.2}}</td>
+                </tr>
               {% else %}
-              <tr>
-                <th scope="row" class="bg-custom-white">{{forloop.counter}}</th>
-                <td class="bg-custom-white">{{item.0}}</td>
-                <td class="bg-custom-white">{{item.1}}</td>
-                <td class="bg-custom-white">{{item.2}}</td>
-              </tr>
-              {% endif %} 
+                <tr>
+                  <th>{{forloop.counter}}</th>
+                  <td  style="word-break:break-all;">{{item.0}}</td>
+                  <td>{{item.1}}</td>
+                  <td>{{item.2}}</td>
+                </tr>
+              {% endif %}  
               {% endfor %}
             </tbody>
           </table>
@@ -70,5 +80,5 @@
       </div>
     </div>
   </div>
-</div>
+
 {% endblock %}

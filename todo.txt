@@ -1,4 +1,2 @@
-- check date in leaderboard and make it to the egypt time
-- deplay website 
-- decide what are the next games
-- look into the web socket way ?
+- adjust dupliocated name with top score
+- show mouse for mobile

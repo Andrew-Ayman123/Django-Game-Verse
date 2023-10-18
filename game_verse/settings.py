@@ -25,20 +25,24 @@ SECRET_KEY = 'django-insecure-a_hzcy252v*ku7nw#@1(b@ud79)*q#_1l(f9r_fhfjcqn-5(uw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.1.7"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'channels',
+    'daphne',
+    'django.contrib.admin', 
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main.apps.MainConfig'
+    'main.apps.MainConfig',
 ]
+
+ASGI_APPLICATION= 'game_verse.asgi.application'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

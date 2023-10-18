@@ -24,9 +24,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+    {% block head_special_content %} {% endblock %}
   </head>
-  <body class="row m-0 p-5 pb-0" style="min-width:775px">
+  <body class="m-0 p-0 d-flex flex-column h-100"  style="overflow-x:hidden;"
+  {% comment %} style="min-width:775px" {% endcomment %}
+  >
+  {% block body_start %} {% endblock %}
+  <div class="row m-0 p-lg-5 p-2 pb-0">
     {% block body_content %} {% endblock %}
+  </div>
+ 
     {% include "main/footer.html" %}
+  
   </body>
 </html>
