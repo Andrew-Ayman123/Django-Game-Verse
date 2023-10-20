@@ -142,7 +142,7 @@ Wordle
 
 {% if word %}
   <script type="text/javascript">
-    let url = `wss://${window.location.host}/ws/socket-server/`
+    let url = `wss://${window.location.host}/wss/socket-server/`
   const chatSocket = new WebSocket(url)
 
   let submitButton = document.getElementById("submit-button")
