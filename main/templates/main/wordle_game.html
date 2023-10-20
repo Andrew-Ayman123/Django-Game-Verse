@@ -142,7 +142,7 @@ Wordle
 
 {% if word %}
   <script type="text/javascript">
-    let url = `ws://${window.location.host}/ws/socket-server/`
+    let url = `wss://${window.location.host}/ws/socket-server/`
   const chatSocket = new WebSocket(url)
 
   let submitButton = document.getElementById("submit-button")
@@ -232,6 +232,7 @@ Wordle
         acceptInput=true
       }
   }
+  
   function wordleLogic(pressedKey){
     console.log(pressedKey)
     if (guessesRemaining === 0||!acceptInput) {
