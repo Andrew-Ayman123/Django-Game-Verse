@@ -135,7 +135,7 @@ def wordle_game(request: HttpRequest):
                     score = int((
                         300 - (time.time()-original_attrs['time']))*100)
                     if score >= 0:
-                        score = int((original_attrs['guesses']/6) * score)
+                        score = int(((original_attrs['guesses']+1)/6) * score)
                         attrs['score'] = score
                         attrs['message'] = f'Bravo !!, Score: {score}. Correct Answer: {original_attrs["word"]}'
                         attrs['success'] = True
