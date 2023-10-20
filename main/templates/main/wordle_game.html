@@ -146,11 +146,6 @@ Wordle
     let url = `${ws_scheme}://${window.location.host}/ws/socket-server/`
     const chatSocket = new WebSocket(url)
 
-  let submitButton = document.getElementById("submit-button")
-  submitButton.addEventListener('click', (e)=> {
-      checkGuess()
-  })
-  
   </script>
   
   
@@ -159,6 +154,10 @@ Wordle
       let guessesRemaining=6
       let currentGuess = []
       let acceptInput=true
+      let submitButton = document.getElementById("submit-button")
+      submitButton.addEventListener('click', (e)=> {
+          checkGuess()
+      })
       function insertLetter (pressedKey) {
         if (nextLetter === 5) {
             return
@@ -208,7 +207,6 @@ Wordle
       let row = wordleBoard.children[6 - guessesRemaining]
       let allCorrect=true
       if (data["refresh"]){
-        console.log("Iam Here")
         window.location.reload()
         return 
       }
