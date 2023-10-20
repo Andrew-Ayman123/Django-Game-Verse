@@ -1,2 +1,1 @@
-- adjust dupliocated name with top score
 - show mouse for mobile
