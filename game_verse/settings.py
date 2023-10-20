@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a_hzcy252v*ku7nw#@1(b@ud79)*q#_1l(f9r_fhfjcqn-5(uw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["andrewayman.pythonanywhere.com","game-verse.onrender.com","localhost"]
 
