@@ -142,8 +142,9 @@ Wordle
 
 {% if word %}
   <script type="text/javascript">
-    let url = `wss://${window.location.host}/wss/socket-server/`
-  const chatSocket = new WebSocket(url)
+    let ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+    let url = `${ws_scheme}://${window.location.host}/ws/socket-server/`
+    const chatSocket = new WebSocket(url)
 
   let submitButton = document.getElementById("submit-button")
   submitButton.addEventListener('click', (e)=> {
@@ -190,9 +191,16 @@ Wordle
       }
 
       acceptInput=false
-      chatSocket.send(JSON.stringify({
+      try {
+        chatSocket.send(JSON.stringify({
           'guessedWord':guessString
-      }))
+      }))  
+      } catch (error) {
+        alert("Error, Try Again.")
+        acceptInput=true
+        console.error(error)
+      }
+      
   }
   
   chatSocket.onmessage = function(e){
