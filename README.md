@@ -36,7 +36,7 @@ Don't settle for lag and insecurity. Take your game to the next level with a **R
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/Andrew-Ayman123/Game-Verse.git
+    git clone https://github.com/Andrew-Ayman123/Django-Game-Verse.git
     ```
 2. Install Python packages
     ```sh
