@@ -1,7 +1,15 @@
 <div align="center">
 
   <h1> <a href="https://game-verse.onrender.com/"> Game Verse </a></h1>
-  <img src="https://madewithlove.now.sh/eg?heart=true" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/Made_With_Love-B32629?style=for-the-badge&logo=undertale&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="Made with love in Egypt">
+  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Made with love in Egypt">
   <h3>  Unleash the Power of Your Game with Real-Time Security!</h3>
   
   <img src="./readme-assets/game-verse-landing.png" alt="logo" height="auto" />
@@ -22,15 +30,6 @@ Elevate your gaming experience with a secure and scalable website built on Rende
 
 Don't settle for lag and insecurity. Take your game to the next level with a **Render-powered** website!
 
-## :space_invader: Built With
-
--   ![Django]
--   ![Python]
--   ![Sqllite]
--   ![HTML]
--   ![CSS]
--   ![JS]
--   ![Bootstrap][Bootstrap]
 
 ## :toolbox: Installation
 
